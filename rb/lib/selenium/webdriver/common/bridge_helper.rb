@@ -38,7 +38,13 @@ module Selenium
       end
 
       def element_id_from(id)
-        id['ELEMENT'] || id['element-6066-11e4-a52e-4f735466cecf']
+        if id.is_a? Array
+          puts "Selenium webdriver element_id_from, length: #{id.length}"
+          id.each{|d| puts d}
+          []
+        else
+          id['ELEMENT'] || id['element-6066-11e4-a52e-4f735466cecf']
+        end
       end
 
       def parse_cookie_string(str)
